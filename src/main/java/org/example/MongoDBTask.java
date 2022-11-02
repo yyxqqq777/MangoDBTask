@@ -26,10 +26,10 @@ public class MongoDBTask {
             }
 
             // Read all documents currently stored in the database.
-            System.out.println("Print all strings contained in these documents to the console:");
-            FindIterable<Document> iterDoc = table.find();
-            // Getting the iterator
-            Iterator iterator = iterDoc.iterator();
+            System.out.println("All strings contained in these documents:");
+            FindIterable<Document> findIterable = table.find();
+            Iterator iterator = findIterable.iterator();
+            // Print all strings contained in these documents to the console:
             while (iterator.hasNext()) {
                 Document document = new Document((Map<String, Object>) iterator.next());
                 System.out.println(document.get("string"));
